@@ -9,23 +9,9 @@
 
 <ion-content>
   <ion-list [lines]="'full'">
-    <ion-item (click)="onExerciseClicked()">
-      <ion-label>Box jumps</ion-label>
-      <ion-icon name="flame" [color]="'danger'"></ion-icon>
-    </ion-item>
-    <ion-item (click)="onExerciseClicked()">
-      <ion-label>JR Normal Jumps</ion-label>
-    </ion-item>
-    <ion-item (click)="onExerciseClicked()">
-      <ion-label>Squats</ion-label>
-      <ion-icon name="flame" [color]="'danger'"></ion-icon>
-    </ion-item>
-    <ion-item (click)="onExerciseClicked()">
-      <ion-label>JR Double Unders</ion-label>
-      <ion-icon name="flame" [color]="'danger'"></ion-icon>
-    </ion-item>
-    <ion-item (click)="onExerciseClicked()">
-      <ion-label>Jumping jacks</ion-label>
+    <ion-item click="onExerciseClicked()" *ngFor="let exercise of exercisesData">
+      <ion-label>{{ exercise.name }}</ion-label>
+      <ion-icon *ngIf="exercise.isFavorite" name="flame" [color]="'danger'"></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>
