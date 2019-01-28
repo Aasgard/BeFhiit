@@ -1,0 +1,21 @@
+@keyframes beat{
+  to { transform: scale(1.4); }
+}
+
+ion-content.login-page-wrapper {
+  --background: linear-gradient(to top, #424242, #393939, #313131, #292929, #212121);
+
+  .login-page-logo {
+    width: 150px;
+    height: 150px;
+    margin: 80px auto 50px auto;
+    display: block;
+    animation: beat .50s 4 alternate;
+    transform-origin: center;
+  }
+
+  .login-page-dologin-button {
+    --background: #40CEF9;
+    --background-activated: #82D2F6;
+  }
+}

@@ -1,5 +1,7 @@
 {
   "name": "BeFhiit",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
