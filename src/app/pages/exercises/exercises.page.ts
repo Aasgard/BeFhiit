@@ -16,7 +16,7 @@ export class ExercisesPage implements OnInit {
         creationDate: '2019-01-28T23:06:47+01:00',
         updateDate: null,
         isFavorite: true,
-        difficulty: 'Facile',
+        difficulty: 'Facile'
     }, {
         id: '04692273-7374-4692-9f8d-23a4a7b569d0',
         name: 'JR Double unders',
@@ -24,21 +24,46 @@ export class ExercisesPage implements OnInit {
         creationDate: '2019-01-27T23:06:47+01:00',
         updateDate: '2019-01-28T23:06:47+01:00',
         isFavorite: false,
-        difficulty: 'Difficile',
+        difficulty: 'Difficile'
+    }, {
+        id: '04692273-7374-4692-9f8d-23a4a7azead0',
+        name: 'JR Freestyle',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo dolor non eros iaculis luctus. Morbi ullamcorper justo ut turpis luctus dapibus.',
+        creationDate: '2019-01-15T23:06:47+01:00',
+        updateDate: '2019-01-21T23:06:47+01:00',
+        isFavorite: true,
+        difficulty: 'Moyen'
+    }, {
+        id: '827987929-7374-4178-9f8d-23a4a7azead0',
+        name: 'Squats PDC',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo dolor non eros iaculis luctus. Morbi ullamcorper justo ut turpis luctus dapibus.',
+        creationDate: '2019-01-17T23:06:47+01:00',
+        updateDate: '2019-01-18T23:06:47+01:00',
+        isFavorite: false,
+        difficulty: 'Facile'
+    }, {
+        id: '04692273-7374-4692-9f8d-23a4a7azead0',
+        name: 'Pompes classiques',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec commodo dolor non eros iaculis luctus. Morbi ullamcorper justo ut turpis luctus dapibus.',
+        creationDate: '2019-01-19T23:06:47+01:00',
+        updateDate: null,
+        isFavorite: false,
+        difficulty: 'Moyen'
     }];
 
     constructor(private actionSheetController: ActionSheetController) {
     }
 
     ngOnInit() {
+        // TODO : récupérer les exercices côté serveur (FB)
     }
 
-    async onExerciseClicked() {
+    async onExerciseClicked(clickedExercise: IExercise) {
         const actionSheet = await this.actionSheetController.create({
             buttons: [{
                 text: 'Voir',
                 handler: () => {
-                    console.log('Favorite clicked');
+                    console.log(clickedExercise);
                 }
             }, {
                 text: 'Modifier',
@@ -46,9 +71,14 @@ export class ExercisesPage implements OnInit {
                     console.log('Share clicked');
                 }
             }, {
-                text: 'Ajouter aux favoris',
+                text: clickedExercise.isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris',
                 handler: () => {
-                    console.log('Favorite clicked');
+                    if (clickedExercise.isFavorite) {
+                        console.log('Retiré aux favoris');
+                    } else {
+                        console.log('Ajouté aux favoris');
+                    }
+                    clickedExercise.isFavorite = !clickedExercise.isFavorite;
                 }
             }, {
                 text: 'Supprimer',

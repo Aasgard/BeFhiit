@@ -4,6 +4,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Paramètres de l'application</ion-label>
+    </ion-item-divider>
+
+    <ion-item [lines]="'full'" [detail]="true">
+      <ion-label>Durées & temps</ion-label>
+    </ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Mon compte</ion-label>
+    </ion-item-divider>
+
+    <ion-item [lines]="'full'" [detail]="true">
+      <ion-label>Mes informations</ion-label>
+    </ion-item>
+    <ion-item [lines]="'full'" [detail]="true">
+      <ion-label>Se déconnecter</ion-label>
+    </ion-item>
+  </ion-item-group>
 
 </ion-content>

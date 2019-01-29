@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar [color]="'dark'">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Workouts</ion-title>
   </ion-toolbar>
+  <ion-segment [color]="'dark'">
+    <ion-segment-button value="friends" [checked]="true">
+      <ion-label>TOUS</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="enemies">
+      <ion-label>FAVORIS</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content padding>
+
+  <ion-card class="workouts-page-card-wrapper" (click)="onWorkoutClicked(workout)" *ngFor="let workout of workoutsData">
+    <ion-card-content class="workouts-page-card-content">
+      <img *ngIf="workout.isFavorite" src="../../../assets/images/shared/favorite_icon.png" alt="Favori" class="workouts-page-card-isfavorite">
+      <div class="workouts-page-card-main-title">{{ workout.name }}</div>
+      <div class="workouts-page-card-second-title">{{ workout.difficulty }}</div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [color]="'secondary'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

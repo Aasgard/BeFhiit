@@ -3,15 +3,21 @@
     <ion-title>Exercices</ion-title>
   </ion-toolbar>
   <ion-toolbar [color]="'dark'">
-    <ion-searchbar [animated]="true" [clearIcon]="true" [placeholder]="'Rechercher un exercice ...'"></ion-searchbar>
+    <ion-searchbar [placeholder]="'Rechercher un exercice ...'"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list [lines]="'full'">
-    <ion-item click="onExerciseClicked()" *ngFor="let exercise of exercisesData">
+    <ion-item (click)="onExerciseClicked(exercise)" *ngFor="let exercise of exercisesData">
       <ion-label>{{ exercise.name }}</ion-label>
       <ion-icon *ngIf="exercise.isFavorite" name="flame" [color]="'danger'"></ion-icon>
     </ion-item>
   </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button [color]="'secondary'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
