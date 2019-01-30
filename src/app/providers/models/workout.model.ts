@@ -9,6 +9,7 @@ export interface IWorkout {
     isFavorite: boolean;
     difficulty: string;
     warmupTime: number;
+    cooldownInterset: number;
     exercises: ISet[];
 }
 
@@ -17,4 +18,5 @@ export interface ISet {
     exercise: IExercise | boolean;
     /* Durée en secondes de l'exercice : par défaut 30 secondes */
     duration: number;
+    order: number;
 }
