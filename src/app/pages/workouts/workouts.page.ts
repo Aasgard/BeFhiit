@@ -84,7 +84,7 @@ export class WorkoutsPage implements OnInit {
             const exercices: ISet[] = this.workoutsData[0].exercises;
             setTimeout(() => {
                 console.log(this.workoutsData[0].exercises[i].exercise);
-            }, exercices[i].duration);
+            }, exercices[i].duration * 1000);
         }
     }
 
